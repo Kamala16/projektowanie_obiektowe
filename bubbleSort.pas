@@ -7,8 +7,17 @@ VAR
   lista: list;
   i, j, temp: Integer;
   n: Integer = 100;
-  len: Integer = 20;
+  len: Integer = 100;
 
+PROCEDURE randomList;
+BEGIN
+  For i:=1 To len Do
+  Begin
+    lista[i] := Random(n)+1;
+    write(lista[i], ' ');
+  End;
+END;
+  
 PROCEDURE sort;
 BEGIN
   For i:=1 To len - 1 Do
@@ -25,12 +34,7 @@ BEGIN
 END;
 
 BEGIN
-
-  For i:=1 To len Do
-  Begin
-    lista[i] := Random(n)+1;
-    write(lista[i], ' ');
-  End;
+  randomlist;
   writeln();
   writeln('POSORTOWANE');
   sort;
