@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>CRUD</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+            </head>
+    <body class="container">
+        <h1 class="text-center"> CRUD </h1>
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-3">
+                <h2>Create</h2>
+                <form method="POST" action="/author/create">
+                    <div class="input-group form-group">
+                        <input type="text" name="id" class="form-control" value="#(author.id)" disabled>
+                        <input type="text" placeholder="name" name="name" class="form-control">
+                    </div>
+                    <div>
+                        <span class="input-group-btn">
+                            <input class="btn btn-success" type="submit" value="create" />
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                <h2>List</h2>
+                #for(author in authorList):
+                    <div style="margin-bottom: 40px;" class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <input type="text" name="id" class="form-control" value="#(author.id)" disabled>
+                                <input type="text" placeholder="name" name="name" class="form-control" value="#(author.name)" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="input-group-btn">
+                            <input style="visibility:hidden;" class="btn btn-primary" type="submit" value="" />
+                        </span>
+                    </div>
+                #endfor
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                <h2>Update</h2>
+                #for(author in authorList):
+                    <form style="margin-bottom: 40px;" method="POST" action="/author/update/#(author.id)">
+                        <div class="input-group form-group">
+                            <input type="text" name="id" class="form-control" value="#(author.id)" disabled>
+                                <input type="text" name="name" class="form-control" value="#(author.name)">
+                        </div>
+                        <div class="mb-2">
+                            <span class="input-group-btn">
+                                <input class="btn btn-primary" type="submit" value="update" />
+                            </span>
+                        </div>
+                    </form>
+                #endfor
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                <h2>Delete</h2>
+                #for(author in authorList):
+                    <form style="margin-bottom: 40px;" method="POST" action="/author/delete/#(author.id)">
+                        <div class="form-group input-group">
+                            <input type="text" name="id" class="form-control" value="#(author.id)" disabled>
+                            <input type="text" name="name" class="form-control" value="#(author.name)" disabled>
+                        </div>
+                        <div>
+                            <span class="input-group-btn">
+                                <input class="btn btn-danger" type="submit" value="delete" />
+                            </span>
+                        </div>
+                    </form>
+                #endfor
+            </div>
+        </div>
+    </body>
+</html>
