@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  cw2:
+    image: kprzystalski/projobj3:latest
+    command: sh -c "cd linked_dir/myapp && go run main.go"
+    volumes:
+      - ./:/home/kprzystalski/linked_dir
+    ports:
+      - 5000:5000
