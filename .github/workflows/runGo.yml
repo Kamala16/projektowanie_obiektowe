@@ -24,4 +24,4 @@ jobs:
             go version
 
       - name: Run build
-        run: go build
+        run: /home/go/myapp/go build
