@@ -26,7 +26,7 @@ jobs:
       - name: Run build
 #         run: /home/go/myapp/go build
         run: |
-           mkdir -p /home/go/src/
-           mv ex_3 /home/go/src/
-           cd /home/go/src/myapp && go mod download
-           go build /home/go/src/my_app/main.go
+           mkdir -p /home/runner/go/src/
+           mv ex_3 /home/runner/go/src/
+           cd /home/runner/go/src/myapp && go mod download
+           go build /home/runner/go/src/my_app/main.go
