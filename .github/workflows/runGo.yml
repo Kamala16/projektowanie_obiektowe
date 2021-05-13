@@ -28,5 +28,5 @@ jobs:
         run: |
            mkdir -p /home/runner/go/src/
            mv go/myapp /home/runner/go/src/
-           cd /home/runner/go/src/go/myapp && go mod download
-           go build /home/runner/go/src/go/my_app/main.go
+           cd /home/runner/go/src/myapp && go mod download
+           go build /home/runner/go/src/my_app/main.go
