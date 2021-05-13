@@ -19,11 +19,9 @@ jobs:
         with:
           go-version: '1.16.0'
           
-#       - name: Install dependencies
-#         run: |
-#             go version
+      - name: Install dependencies
+        run: |
+            go version
 
       - name: Run build
-        run: |
-          mv /home/go/myapp
-          go build main.go
+        run: go build
