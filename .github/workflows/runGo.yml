@@ -24,4 +24,9 @@ jobs:
             go version
 
       - name: Run build
-        run: /home/go/myapp/go build
+#         run: /home/go/myapp/go build
+        run: |
+           mkdir -p /home/go/src/
+           mv ex_3 /home/go/src/
+           cd /home/go/src/myapp && go mod download
+           go build /home/go/src/my_app/main.go
