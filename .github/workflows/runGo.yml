@@ -25,5 +25,5 @@ jobs:
 
       - name: Run build
         run: |
-          mv go/myapp
+          mv /home/go/myapp
           go build main.go
