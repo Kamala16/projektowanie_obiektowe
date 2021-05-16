@@ -194,10 +194,12 @@ func main() {
 
 	GetInstance().Open()
 
-    e.POST("/books", createBook)
-    e.GET("/books/:id", getBook)
-    e.PUT("/books/:id", updateBook)
-    e.DELETE("/books/:id", deleteBook)
+	const path = "/books"
+
+    e.POST(path, createBook)
+    e.GET(path + "/:id", getBook)
+    e.PUT(path + "/:id", updateBook)
+    e.DELETE(path + "/:id", deleteBook)
 
     e.Logger.Fatal(e.Start(":5000"))
 }
