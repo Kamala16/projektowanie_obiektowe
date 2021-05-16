@@ -14,12 +14,9 @@ import (
 
 type (
 	book struct{
-            // Id      int     `json:"id"`
-            // Title   string  `json:"title"`
-            // Author  string  `json:"author"`
-			Id := `{"id":"json"}`
-			Title := `{"title":"json"}`
-			Author := `{"author":"json"}`
+            Id      int     `json:"id"`
+            Title   string  `json:"title"`
+            Author  string  `json:"author"`
 	}
 )
 
