@@ -6,7 +6,7 @@ struct AuthorController: RouteCollection {
         //pass
     }
 
-    static let path = "/authors"//config.getPropety("/authors")
+    static let path = config.getPropety("/authors")
 
     func index(req: Request) throws -> EventLoopFuture<View> {
         let allAuthors = Author.query(on: req.db).all()

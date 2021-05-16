@@ -14,7 +14,7 @@ struct BookController: RouteCollection {
             return req.view.render("books", data)}
     }
 
-    static let path = "/books"//config.getPropety("/books")
+    static let path = config.getPropety("/books")
 
     func create(req: Request) throws -> EventLoopFuture<Response> {
         let book = try req.content.decode(Book.self)

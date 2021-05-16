@@ -14,7 +14,7 @@ struct OwnerController: RouteCollection {
             return req.view.render("owners", data)}
     }
 
-    static let path = "/owners"//config.getPropety("/owners")
+    static let path = config.getPropety("/owners")
 
     func create(req: Request) throws -> EventLoopFuture<Response> {
         let owner = try req.content.decode(Owner.self)
