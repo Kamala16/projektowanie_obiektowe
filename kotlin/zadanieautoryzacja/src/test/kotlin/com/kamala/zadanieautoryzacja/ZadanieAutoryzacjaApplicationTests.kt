@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest
 class ZadanieAutoryzacjaApplicationTests {
 
     @Test
-    fun contextLoads() { //print("OK")
+    fun contextLoads() {
+        //pass
     }
 }
