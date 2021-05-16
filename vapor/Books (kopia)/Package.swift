@@ -1,10 +1,10 @@
 // swift-tools-version:5.2
 import PackageDescription
 
-let vapor = "https://github.com/vapor/vapor.git"
-let fluent = "https://github.com/vapor/fluent.git"
-let sqlite = "https://github.com/vapor/fluent-sqlite-driver.git"
-let leaf = "https://github.com/vapor/leaf.git"
+var vapor = "https://github.com/vapor/vapor.git"
+var fluent = "https://github.com/vapor/fluent.git"
+var sqlite = "https://github.com/vapor/fluent-sqlite-driver.git"
+var leaf = "https://github.com/vapor/leaf.git"
 
 let package = Package(
     name: "Books",
