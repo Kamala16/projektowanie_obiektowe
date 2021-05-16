@@ -2,7 +2,11 @@ import Fluent
 import Vapor
 
 struct AuthorController: RouteCollection {
-    func boot(routes: RoutesBuilder) throws {}
+    func boot(routes: RoutesBuilder) throws {
+        //pass
+    }
+
+    var path = "/authors"
 
     func index(req: Request) throws -> EventLoopFuture<View> {
         let allAuthors = Author.query(on: req.db).all()
@@ -15,7 +19,7 @@ struct AuthorController: RouteCollection {
     func create(req: Request) throws -> EventLoopFuture<Response> {
         let author = try req.content.decode(Author.self)
         return author.save(on: req.db).map { _ in
-            return req.redirect(to: "/authors") 
+            return req.redirect(to: path) 
         }
     }
 
@@ -24,7 +28,7 @@ struct AuthorController: RouteCollection {
             .unwrap(or: Abort(.notFound))
             .flatMap { $0.delete(on: req.db) }
             .map { _ in
-                return req.redirect(to: "/authors")
+                return req.redirect(to: path)
             }
     }
     func update(req: Request) throws -> EventLoopFuture<Response>{
@@ -34,7 +38,7 @@ struct AuthorController: RouteCollection {
             .flatMap { author in
                 author.name = input.name
                 return author.save(on: req.db).map { _ in
-                    return req.redirect(to: "/authors")
+                    return req.redirect(to: path)
                 }
             }
     }

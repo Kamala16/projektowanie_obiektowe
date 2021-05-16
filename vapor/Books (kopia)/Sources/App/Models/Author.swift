@@ -10,7 +10,9 @@ final class Author: Model, Content {
     @Field(key: "Name")
     var name: String
 
-    init() { }
+    init() {
+        //pass
+    }
 
     init(id: UUID? = nil, name: String) {
         self.id = id

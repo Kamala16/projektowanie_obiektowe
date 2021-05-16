@@ -2,7 +2,9 @@ import Fluent
 import Vapor
 
 struct OwnerController: RouteCollection {
-    func boot(routes: RoutesBuilder) throws {}
+    func boot(routes: RoutesBuilder) throws {
+        //pass
+    }
 
     func index(req: Request) throws -> EventLoopFuture<View> {
         let allOwners = Owner.query(on: req.db).all()
@@ -12,10 +14,12 @@ struct OwnerController: RouteCollection {
             return req.view.render("owners", data)}
     }
 
+    var path = "/owners"
+
     func create(req: Request) throws -> EventLoopFuture<Response> {
         let owner = try req.content.decode(Owner.self)
         return owner.save(on: req.db).map { _ in
-            return req.redirect(to: "/owners") 
+            return req.redirect(to: path) 
         }
     }
 
@@ -24,7 +28,7 @@ struct OwnerController: RouteCollection {
             .unwrap(or: Abort(.notFound))
             .flatMap { $0.delete(on: req.db) }
             .map { _ in
-                return req.redirect(to: "/owners")
+                return req.redirect(to: path)
             }
     }
     func update(req: Request) throws -> EventLoopFuture<Response>{
@@ -35,7 +39,7 @@ struct OwnerController: RouteCollection {
                 owner.name = input.name
                 owner.city = input.city
                 return owner.save(on: req.db).map { _ in
-                    return req.redirect(to: "/owners")
+                    return req.redirect(to: path)
                 }
             }
     }

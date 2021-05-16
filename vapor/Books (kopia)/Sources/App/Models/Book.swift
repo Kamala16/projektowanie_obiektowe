@@ -13,7 +13,9 @@ final class Book: Model, Content {
     @Field(key: "author")
     var author: UUID 
 
-    init() { }
+    init() {
+        //pass
+    }
 
     init(id: UUID? = nil, title: String, author: String) {
         self.id = id

@@ -13,7 +13,9 @@ final class Owner: Model, Content {
     @Field(key: "City")
     var city: String 
 
-    init() { }
+    init() {
+        //pass    
+    }
 
     init(id: UUID? = nil, name: String, city: String) {
         self.id = id
